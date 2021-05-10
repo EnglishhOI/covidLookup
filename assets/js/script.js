@@ -17,7 +17,6 @@ const updateTerm = () => {
                 console.log(cData)
 
                 const name = document.getElementById('country').innerHTML = data.All.country;
-                const location = document.getElementById('location').innerHTML = data.All.location;
                 const population = document.getElementById('population').innerHTML = data.All.population;
                 const confirmed = document.getElementById('confirmed').innerHTML = data.All.confirmed;
                 const recovered = document.getElementById('recovered').innerHTML = data.All.recovered;

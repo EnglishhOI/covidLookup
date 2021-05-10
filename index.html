@@ -4,30 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Covid-19 country search</title>
+  <title>Covid-19 Lookup</title>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
-  <header>
-      <h1>Covid-19 lookup</h1>
-      <input type="text" id="searchInput">
-      <button>Search!</button>
-      <hr>
-  </header>
+    <div class="wrapper">
 
-  <main id="countryContainer">
+        <header>
+            <h1>Covid-19 lookup</h1>
+            <div class="input">
+                <input type="text" id="searchInput"><button>Search!</button>
 
-    <article>
-      <h1 id="country">Country</h1>
-      <p id="location">Location</p>
-      <p id="population">population</p>
-      <p id="confirmed">confirmed</p>
-      <p id="recovered">recovered</p>
-      <p id="deaths">Deaths</p>
+            </div>
+            <hr>
+        </header>
+      
+        <main id="countryContainer">
+      
+          <article>
+            <section class="countryPop">
+                <h1 id="country">Country</h1>
+                <div class="pop">
+                    <p>Population</p>
+                    <p id="population">population</p>
 
-    </article>
-  </main>
+                </div>
+
+            </section>
+            <div class="infoBlock">
+                <div class="block">
+                    <p>Total Cases</p>
+                    <p id="confirmed">confirmed</p>
+                </div>
+
+                <div class="block">
+                    <p>Total Recovered</p>
+                    <p id="recovered">recovered</p>
+
+                </div>
+
+                <div class="block">
+                    <p>Total Deaths</p>
+                    <p id="deaths">Deaths</p>
+
+                </div>
+            </div>
+      
+          </article>
+        </main>
+    </div>
+
 
 
     <script src="assets/js/script.js"></script>
