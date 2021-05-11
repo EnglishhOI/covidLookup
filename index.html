@@ -18,6 +18,7 @@
 
         <section class="header">
 
+            <p id="errorMessage"></p>
             <div class="input">
                 <input type="text" id="searchInput" placeholder="Search for a country..."><button>Search!</button>
     
@@ -34,14 +35,14 @@
 
                 <table>
                     <tr>
-                        <th class="tableHeading">Mortality</th>
                         <th class="tableHeading">Population</th>
-                        <th class="tableHeading">Recovery</th>
+                        <th class="tableHeading green">Recovery<span>(%)</span></th>
+                        <th class="tableHeading red">Mortality<span>(%)</span></th>
                     </tr>
                     <tr>
-                        <td id="mortality">--------</td>
                         <td id="population">--------</td>
                         <td id="recovery">--------</td>
+                        <td id="mortality">--------</td>
                     </tr>
 
                     <tr>
@@ -58,6 +59,11 @@
                         <td id="deaths">--------</td>
                     </tr>
                 </table>
+                <div class="updated">
+                    <p>Last Updated</p>
+                    <p id="lastUpdated">--------</p>
+
+                </div>
           </article>
         </main>
     </div>
