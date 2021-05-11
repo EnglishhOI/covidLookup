@@ -13,44 +13,51 @@
 
         <header>
             <h1>Covid-19 lookup</h1>
-            <div class="input">
-                <input type="text" id="searchInput"><button>Search!</button>
-
-            </div>
-            <hr>
         </header>
+        
+
+        <section class="header">
+
+            <div class="input">
+                <input type="text" id="searchInput" placeholder="Search for a country..."><button>Search!</button>
+    
+                </div>
+        </section>
       
         <main id="countryContainer">
       
           <article>
-            <section class="countryPop">
+            <section class="countrySection">
                 <h1 id="country">Country</h1>
-                <div class="pop">
-                    <p>Population</p>
-                    <p id="population">population</p>
-
-                </div>
-
             </section>
-            <div class="infoBlock">
-                <div class="block">
-                    <p>Total Cases</p>
-                    <p id="confirmed">confirmed</p>
-                </div>
 
-                <div class="block">
-                    <p>Total Recovered</p>
-                    <p id="recovered">recovered</p>
 
-                </div>
+                <table>
+                    <tr>
+                        <th class="tableHeading">Mortality</th>
+                        <th class="tableHeading">Population</th>
+                        <th class="tableHeading">Recovery</th>
+                    </tr>
+                    <tr>
+                        <td id="mortality">--------</td>
+                        <td id="population">--------</td>
+                        <td id="recovery">--------</td>
+                    </tr>
 
-                <div class="block">
-                    <p>Total Deaths</p>
-                    <p id="deaths">Deaths</p>
+                    <tr>
+                        <td class="tableHeading">Cases</td>
+                        <td class="tableHeading">Recovered</td>
+                        <td class="tableHeading">Deaths</td>
+                    </tr>
 
-                </div>
-            </div>
-      
+                    <tr>
+                        <td id="confirmed">--------</td>
+
+                        <td id="recovered">--------</td>
+
+                        <td id="deaths">--------</td>
+                    </tr>
+                </table>
           </article>
         </main>
     </div>
