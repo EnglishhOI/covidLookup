@@ -11,15 +11,15 @@
 <body>
     
     <div class="wrapper">
-        
         <header>
             <h1>Covid-19 lookup</h1>
         </header>
         
         
+        
         <section class="header">
             
-            <p id="errorMessage"></p>
+            <p id="errorMessage">-----</p>
             <div class="input">
                 <input type="text" id="searchInput" placeholder="Search..."><button>Search!</button>
                 
@@ -32,65 +32,65 @@
                 <section class="countrySection">
                     <h1 id="country">Country</h1>
                 </section>
-
+                
                 <div class="container">
-                
-                <div class="row">
-                    <div class="col-md row">
-                        <div class="col col-md-12">
-                            <p class="tableHeading ">Population</p>
+                    
+                    <div class="row">
+                        <div class="col-md row">
+                            <div class="col col-md-12">
+                                <p class="tableHeading ">Population</p>
+                            </div>
+                            <div class="col col-md-12">
+                                <p id="population">--------</p>
+                            </div>
                         </div>
-                        <div class="col col-md-12">
-                            <p id="population">--------</p>
+                        <div class="col-md row">
+                            <div class="col col-md-12">
+                                <p class="tableHeading ">Cases</p>
+                            </div>
+                            <div class="col col-md-12">
+                                <p id="confirmed">--------</p>
+                            </div>
+                        </div>
+                        <div class="col-md row">
+                            <div class="col col-md-12">
+                                <p class="tableHeading">Recovered</p>
+                            </div>
+                            <div class="col col-md-12">
+                                <p id="recovered">--------</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md row">
-                        <div class="col col-md-12">
-                            <p class="tableHeading green">Recovery<span>(%)</span></p>
+                    
+                    
+                    
+                    <div class="row">
+                        <div class="col-md row">
+                            <div class="col col-md-12">
+                                <p class="tableHeading">Deaths</p>
+                            </div>
+                            <div class="col col-md-12">
+                                <p id="deaths">--------</p>
+                            </div>
                         </div>
-                        <div class="col col-md-12">
-                            <p id="recovery">--------</p>
+                        <div class="col-md row">
+                            <div class="col col-md-12">
+                                <p class="tableHeading green">Recovery<span>(%)</span></p>
+                            </div>
+                            <div class="col col-md-12">
+                                <p id="recovery">--------</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md row">
-                        <div class="col col-md-12">
-                            <p class="tableHeading red">Mortality<span>(%)</span></p>
-                        </div>
-                        <div class="col col-md-12">
-                            <p id="mortality">--------</p>
+                        <div class="col-md row">
+                            <div class="col col-md-12">
+                                <p class="tableHeading red">Mortality<span>(%)</span></p>
+                            </div>
+                            <div class="col col-md-12">
+                                <p id="mortality">--------</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            
-                
-                <div class="row">
-                    <div class="col-md row">
-                        <div class="col col-md-12">
-                            <p class="tableHeading ">Cases</p>
-                        </div>
-                        <div class="col col-md-12">
-                            <p id="confirmed">--------</p>
-                        </div>
-                    </div>
-                    <div class="col-md row">
-                        <div class="col col-md-12">
-                            <p class="tableHeading">Recovered</p>
-                        </div>
-                        <div class="col col-md-12">
-                            <p id="recovered">--------</p>
-                        </div>
-                    </div>
-                    <div class="col-md row">
-                        <div class="col col-md-12">
-                            <p class="tableHeading">Deaths</p>
-                        </div>
-                        <div class="col col-md-12">
-                            <p id="deaths">--------</p>
-                        </div>
-                    </div>
-                </div>
-        </div>
                 <div class="updated">
                     <p id="lastUpdated"></p>
                     

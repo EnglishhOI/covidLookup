@@ -10,7 +10,7 @@ const updateTerm = () => {
     
     if(!term || term === '') {
         errorMessage.classList.add('error');
-        errorMessage.innerHTML = "please enter a countries name"
+        errorMessage.innerHTML = "ERROR: Search Box empty"
     } else {
         
         for (let i = 0; i < words.length; i++) {
@@ -27,7 +27,7 @@ const updateTerm = () => {
         .then((data) => {
             //Whenever the term is correct it removes an error if it was visable before
             errorMessage.classList.remove('error');
-            errorMessage.innerHTML = ' ';
+            errorMessage.innerHTML = '---';
             
 
             //variables to use later
@@ -68,7 +68,7 @@ const updateTerm = () => {
 
         //Catches an error and passes through and displays on screen
         .catch(error => {
-            errorMessage.innerHTML = "Incorrect spelling or unable to aquire country's details";
+            errorMessage.innerHTML = "ERROR: Incorrect spelling";
             errorMessage.classList.add('error');
             
             console.log('request failed', error);
