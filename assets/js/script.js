@@ -6,7 +6,7 @@ const updateTerm = () => {
     const errorMessage = document.getElementById('errorMessage');
     const words = term.split(" ");
     
-    
+    //Searches the term but if the term isn't met it passes an error
     
     if(!term || term === '') {
         errorMessage.classList.add('error');
@@ -25,9 +25,12 @@ const updateTerm = () => {
             return res.json(); 
         })
         .then((data) => {
+            //Whenever the term is correct it removes an error if it was visable before
             errorMessage.classList.remove('error');
             errorMessage.innerHTML = ' ';
             
+
+            //variables to use later
             const cData = data;
             const update = document.getElementById('lastUpdated'); 
             const updatedData = data[Object.keys(data)[1]];
@@ -35,74 +38,45 @@ const updateTerm = () => {
             
             let recoverCalc = Math.ceil(data.All.recovered / data.All.confirmed * 100) + '%';
             let deathCalc = Math.ceil(data.All.deaths / data.All.confirmed * 100) + '%';
-            
+
+
+            //Whenever the updated isn't found it goes to the next Object item and fings the last updated
             
             if (data.All.updated != undefined) {
-                update.innerHTML = data.All.updated.slice(0, 10);
+                update.innerHTML = "Last Updated: " + data.All.updated.slice(0, 10);
             } else if (updatedData != undefined) {
-                update.innerHTML = data[Object.keys(data)[1]].updated.slice(0, 10);
+                update.innerHTML = "Last Updated: " + data[Object.keys(data)[1]].updated.slice(0, 10);
             } else {
                 update.innerHTML = 'Update not found'
             }
-            
-            function thOrMi(number){
-                let num = number.toString().length;
-                console.log(num);
-                switch(num) {
-                    case 4:
-                    return number.toString().slice(0,1) + 'K';
-                    break;
-                    
-                    case 5:
-                    return number.toString().slice(0,2) + 'K';
-                    break;
 
-                    case 6:
-                    return number.toString().slice(0,3) + 'K';
-                    break;
+            //Function takes a large number and adds commas in the correct places
+            function formatNumber(num) {
+                return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+              }
 
-                    case 7:
-                    return number.toString().slice(0,1) + 'M';
-                    break;
-                    
-                    case 8:
-                    return number.toString().slice(0,2) + 'M';
-                    break;
-                    
-                    case 9:
-                    return number.toString().slice(0,3) + 'M';
-                    break;
-                    
-                    case 10:
-                    return number.toString().slice(0,1) + 'B';
-                    break;
-                    
-                    default: 
-                    return number.toString().slice(0,2) + 'B';    
-                }
-            }
+            //grabs the documents ID's and replaces the Inner with the correct information
 
             document.getElementById('country').innerHTML = data.All.country;
-            document.getElementById('population').innerHTML = thOrMi(data.All.population);
-            document.getElementById('confirmed').innerHTML = thOrMi(data.All.confirmed);
-            document.getElementById('recovered').innerHTML = thOrMi(data.All.recovered);
-            document.getElementById('deaths').innerHTML = thOrMi(data.All.deaths);          
+            document.getElementById('population').innerHTML = formatNumber(data.All.population);
+            document.getElementById('confirmed').innerHTML =  formatNumber(data.All.confirmed);           
+            document.getElementById('recovered').innerHTML =  formatNumber(data.All.recovered);           
+            document.getElementById('deaths').innerHTML =  formatNumber(data.All.deaths);     
             document.getElementById('recovery').innerHTML = recoverCalc;
             document.getElementById('mortality').innerHTML = deathCalc;
-            
-            let easy = thOrMi(data.All.population);
-            console.log(easy);
-            
-            
         })
+
+        //Catches an error and passes through and displays on screen
         .catch(error => {
-            errorMessage.innerHTML = "ERROR! Make sure the country is spelled correctly";
+            errorMessage.innerHTML = "Incorrect spelling or unable to aquire country's details";
             errorMessage.classList.add('error');
             
             console.log('request failed', error);
         }
         )};
     };
+
+    //Triggers the Search function
     
     const searchBtn = document.querySelector('button');
     const searchInpt = document.getElementById('searchInput')
