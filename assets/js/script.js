@@ -64,7 +64,68 @@ const updateTerm = () => {
             document.getElementById('deaths').innerHTML =  formatNumber(data.All.deaths);     
             document.getElementById('recovery').innerHTML = recoverCalc;
             document.getElementById('mortality').innerHTML = deathCalc;
-        })
+
+
+
+
+
+
+            //SUB COUNTRIES SECTION (IF APPLICABLE)
+        dataO = Object.entries(cData)
+        console.log(dataO)
+        
+        
+        subCountryContainer = document.getElementById('subCountryBox');
+        
+            return dataO.map(sub => { 
+
+
+                const paragraph = document.createElement('p');
+                const article = document.createElement('article')
+                article.classList.add('subCountry')
+                subCountry = document.createElement('h3')
+                subCountry.innerHTML = sub[0]
+                
+                const subCasesDiv = document.createElement('div'),
+                casesParagraph = document.createElement('p')
+                casesParagraph.innerHTML = "Cases",
+                subCases = document.createElement('p')
+                subCases.innerHTML = sub[1].confirmed
+                
+                subCasesDiv.appendChild(casesParagraph)
+                subCasesDiv.appendChild(subCases)
+
+                const subRecoveredDiv = document.createElement('div'),
+                recoveredParagraph = document.createElement('p')
+                recoveredParagraph.innerHTML = "Recovered",
+                subRecovered = document.createElement('p')
+                subRecovered.innerHTML = sub[1].recovered
+                
+                subRecoveredDiv.appendChild(recoveredParagraph)
+                subRecoveredDiv.appendChild(subRecovered)
+
+                const subDeathsDiv = document.createElement('div'),
+                deathsParagraph = document.createElement('p')
+                deathsParagraph.innerHTML = "Deaths",
+                subDeaths = document.createElement('p')
+                subDeaths.innerHTML = sub[1].deaths
+                
+                subDeathsDiv.appendChild(deathsParagraph)
+                subDeathsDiv.appendChild(subDeaths)
+
+                article.appendChild(subCountry)
+                article.appendChild(subCasesDiv)
+                article.appendChild(subRecoveredDiv)
+                article.appendChild(subDeathsDiv)
+    
+                subCountryContainer.appendChild(article)
+    
+            })
+    })
+
+
+
+
 
         //Catches an error and passes through and displays on screen
         .catch(error => {
