@@ -71,14 +71,17 @@ const updateTerm = () => {
 
 
             //SUB COUNTRIES SECTION (IF APPLICABLE)
+        let removedData = delete data.All;
+        removedData = delete data.Unknown;
         dataO = Object.entries(cData)
-        console.log(dataO)
-        
         
         subCountryContainer = document.getElementById('subCountryBox');
+
+        while(subCountryContainer.firstChild) {
+            subCountryContainer.removeChild(subCountryContainer.firstChild);
+        }
         
             return dataO.map(sub => { 
-
 
                 const paragraph = document.createElement('p');
                 const article = document.createElement('article')
