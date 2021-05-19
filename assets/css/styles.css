@@ -4,13 +4,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-
+    
     --light-blue: #E1EFFF;
     --light-blue-hover: #c5e0ff;
     --blue:#7EBAFF;
     --dark-blue: #617FA2;
     --font-color: rgb(83, 83, 83);
-
+    
     --red: rgb(216, 113, 108);
     --green: rgb(121, 200, 97);
     
@@ -18,14 +18,15 @@
 
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
     margin: 0;
     padding: 0;
-
+    
     font-family: 'Roboto', sans-serif;
     color: var(--font-color);
-
+    
 }
 
 
@@ -38,17 +39,18 @@ p {
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 header {
     width: 100%;
     font-family: 'bebas Neue', cursive;
-
+    
     padding: 10px;
-
+    
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
     background: var(--light-blue);
 }
 header h1 { 
@@ -130,7 +132,7 @@ article {
     align-items: center;
     flex-direction: column;
     width: 100%;
-
+    
     margin-bottom: 4vh;
 }
 .header input {
@@ -139,11 +141,11 @@ article {
     border-radius: 12px 0 0 12px;
     border: 2px solid var(--light-blue);
     color: var(--dark-blue);
-
-
+    
+    
     padding-left: 20px;
     margin: 0;
-
+    
     font-size: 20px;
     outline: none;
 }
@@ -162,12 +164,52 @@ article {
     background: var(--light-blue-hover);
     transition: all 0.25s ease-in-out;
 }
+#subCountryBox{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    
+    margin: 55px 0;
+    
+}
+
+.subCountry {
+    width: 100%;
+    border: solid 2px var(--light-blue);
+    
+    justify-self: center;
+}
+
+.subCountry > h3 {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    align-content: center;
+    height: 50px;
+    text-align: center;
+
+    text-transform: uppercase;
+    font-weight: 700;
+    
+}
+.subCountry > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5px;
+    
+}
+
+.subCountry > div:nth-child(even) {
+    background: var(--light-blue);
+}
 
 #errorMessage {
     visibility: hidden;
     color: #fff;
     text-align: center;
-    width: 95%;
+    width: 80%;
     margin: 5px 0;
     border-radius: 5px;
 }
@@ -184,9 +226,13 @@ article {
     color: var(--green);
 }
 
+footer {
+    bottom: 0;
+}
+
 @media (min-width: 768px) {
-
-
+    
+    
     header { 
         left: 20px;
         top: -17px;
@@ -194,20 +240,19 @@ article {
         background: none;
         padding-top: 30px;
     }
-
+    
     header h1 {
         font-size: 5vw;
     }
     .wrapper { 
         height: auto;
         width: 80%;
-        align-items: center;
     }
     .input {
         width: 100%;
     }
     
-
+    
     .header {
         width: 85%;
         margin-bottom: 60px;
@@ -215,10 +260,10 @@ article {
     .header input {
         width: 75%;
         height: 50px;
-    
+        
         padding-left: 20px;
         margin: 0;
-    
+        
         font-size: 24px;
         outline: none;
     }
@@ -230,12 +275,16 @@ article {
         width: 25%;
         border: none;
     }
-
+    
     #countryContainer {
         width: 85%;
         border-bottom: 2px solid var(--dark-blue);
         padding-bottom: 49px;   
         border-top: solid 2px var(--dark-blue);
+    }
+
+    .subCountry > h3 {
+        font-size: 15px;
     }
     
     
@@ -243,9 +292,9 @@ article {
         display: flex;
         align-items: center;
         justify-content: center;
-    
+        
         height: 165px;
-    
+        
         position: relative;
     }
     
@@ -255,7 +304,7 @@ article {
         top: -17px;
         align-self: flex-start;
         background: #fff;
-    
+        
         padding: 5px 20px;
     }
     
@@ -268,7 +317,7 @@ article {
         border-spacing: 10px;
         
     }
-
+    
     .container > .row > .row > div {
         display:block;
         align-items: center;
@@ -278,19 +327,28 @@ article {
     .container > .row > .row > div > p{ 
         text-align: center;
     }
-
+    
     .container > .row > .row > div:last-child > p {
         text-align: center;
         width: 100%;
     }
-
+    
     .container .row:first-child .row:nth-child(odd),
     .container .row:last-child .row:nth-child(even) {
-    background: none;
-}
+        background: none;
+    }
     
     
-    
+    #subCountryBox{
+        grid-template-columns: repeat(3, 1fr);
+        width: 100%;
+
+        grid-gap: 20px;
+
+    }
+    .subCountry > h3 {
+        font-size: 15px;
+    }
     
     .updated {
         position: absolute;
@@ -298,7 +356,7 @@ article {
         bottom: -53px;
         right: -3px;
     }
-
+    
     .updated > p {
         margin: 0;
     }
@@ -313,35 +371,15 @@ article {
     .wrapper {
         width: 60%;
     }
-
+    
     #subCountryBox{
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-gap: 10px;
-
-        margin-top: 20px;
-
-    }
-
-    .subCountry {
-        width: 200px;
-        border: solid 2px var(--light-blue);
-
+        grid-template-columns: repeat(4, 1fr);
+        
+        
     }
 
     .subCountry > h3 {
-        font-size: 16px;
-
+        font-size: 17px;
     }
-    .subCountry > div {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 5px;
-
-    }
-
-    .subCountry > div:nth-child(even) {
-        background: var(--light-blue);
-    }
+    
 }
