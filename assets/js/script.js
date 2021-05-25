@@ -14,9 +14,13 @@ const updateTerm = () => {
     } else {
         
         for (let i = 0; i < words.length; i++) {
-            words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
+            if(term == 'us' || term == 'US' || term  == 'Us' || term == 'USA' || term == 'NA') {
+                term = 'US';
+            } else {
+                words[i] = words[i][0].toUpperCase() + words[i].substr(1).toLowerCase();
+
+            }
         }
-        term = words.join(" ");
 
         const url = `https://covid-api.mmediagroup.fr/v1/cases?country=${term}`;
         
@@ -28,7 +32,6 @@ const updateTerm = () => {
             //Whenever the term is correct it removes an error if it was visable before
             errorMessage.classList.remove('error');
             errorMessage.innerHTML = '---';
-            
 
             //variables to use later
             const cData = data;
